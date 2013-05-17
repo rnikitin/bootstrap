@@ -1,12 +1,136 @@
----
-layout: default
-title: JavaScript plugins
-slug: js
-lead: "Bring Bootstrap's components to life with over a dozen custom jQuery plugins. Easily include them all, or one by one."
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>
+  
+    JavaScript plugins &middot; Bootstrap
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/css/bootstrap.css" rel="stylesheet">
 
 
-  <!-- Overview
+<!-- Documentation extras -->
+<link href="/assets/css/docs.css" rel="stylesheet">
+<link href="/assets/css/pygments-manni.css" rel="stylesheet">
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/js/html5shiv.js"></script>
+  <script src="/assets/js/respond/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
+                <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+                               <link rel="shortcut icon" href="/assets/ico/favicon.png">
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-146052-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+    <!-- Place anything custom after this. -->
+  </head>
+  <body data-spy="scroll" data-target=".bs-sidebar">
+
+    <!-- Docs master nav -->
+    <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
+  <div class="container">
+    <a href="/" class="navbar-brand">Bootstrap</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="nav-collapse collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/getting-started">Getting started</a>
+        </li>
+        <li>
+          <a href="/css">CSS</a>
+        </li>
+        <li>
+          <a href="/components">Components</a>
+        </li>
+        <li class="active">
+          <a href="/javascript">JavaScript</a>
+        </li>
+        <li>
+          <a href="/customize">Customize</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header">
+      <div class="container">
+        <h1>JavaScript plugins</h1>
+        <p>Bring Bootstrap's components to life with over a dozen custom jQuery plugins. Easily include them all, or one by one.</p>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col col-lg-3">
+          <div class="bs-sidebar">
+            <ul class="nav bs-sidenav">
+              
+                 <li>
+  <a href="#js-overview">Overview</a>
+  <ul class="nav">
+    <li><a href="#js-individual-compiled">Individual or compiled</a></li>
+    <li><a href="#js-data-attributes">Data attributes</a></li>
+    <li><a href="#js-programmatic-api">Programmatic API</a></li>
+    <li><a href="#js-noconflict">No Conflict</a></li>
+    <li><a href="#js-events">Events</a></li>
+  </ul>
+</li>
+<li><a href="#transitions">Transitions</a></li>
+<li>
+  <a href="#modals">Modal</a>
+  <ul class="nav">
+    <li><a href="#modals-examples">Examples</a></li>
+    <li><a href="#modals-usage">Usage</a></li>
+  </ul>
+</li>
+<li><a href="#dropdowns">Dropdown</a></li>
+<li><a href="#scrollspy">Scrollspy</a></li>
+<li><a href="#tabs">Tab</a></li>
+<li><a href="#tooltips">Tooltip</a></li>
+<li><a href="#popovers">Popover</a></li>
+<li><a href="#js-alerts">Alert</a></li>
+<li><a href="#js-buttons">Button</a></li>
+<li><a href="#collapse">Collapse</a></li>
+<li><a href="#carousel">Carousel</a></li>
+<li><a href="#affix">Affix</a></li>
+
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col col-lg-9">
+            <!-- Overview
   ================================================== -->
   <div class="bs-docs-section" id="js-overview">
     <div class="page-header">
@@ -24,46 +148,52 @@ lead: "Bring Bootstrap's components to life with over a dozen custom jQuery plug
     <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap's first class API and should be your first consideration when using a plugin.</p>
 
     <p>That said, in some situations it may be desirable to turn this functionality off. Therefore, we also provide the ability to disable the data attribute API by unbinding all events on the body namespaced with `'data-api'`. This looks like this:
-{% highlight js %}
-$('body').off('.data-api')
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$('body').off('.data-api')</code></pre>
+</div>
+
 
     <p>Alternatively, to target a specific plugin, just include the plugin's name as a namespace along with the data-api namespace like this:</p>
-{% highlight js %}
-$('body').off('.alert.data-api')
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$('body').off('.alert.data-api')</code></pre>
+</div>
+
 
     <h3 id="js-programmatic-api">Programmatic API</h3>
     <p>We also believe you should be able to use all Bootstrap plugins purely through the JavaScript API. All public APIs are single, chainable methods, and return the collection acted upon.</p>
-{% highlight js %}
-$(".btn.danger").button("toggle").addClass("fat")
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$(&quot;.btn.danger&quot;).button(&quot;toggle&quot;).addClass(&quot;fat&quot;)</code></pre>
+</div>
+
 
     <p>All methods should accept an optional options object, a string which targets a particular method, or nothing (which initiates a plugin with default behavior):</p>
-{% highlight js %}
-$("#myModal").modal()                      // initialized with defaults
-$("#myModal").modal({ keyboard: false })   // initialized with no keyboard
-$("#myModal").modal('show')                // initializes and invokes show immediately</p>
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$(&quot;#myModal&quot;).modal()                      // initialized with defaults
+$(&quot;#myModal&quot;).modal({ keyboard: false })   // initialized with no keyboard
+$(&quot;#myModal&quot;).modal('show')                // initializes and invokes show immediately&lt;/p&gt;</code></pre>
+</div>
+
 
     <p>Each plugin also exposes its raw constructor on a `Constructor` property: <code>$.fn.popover.Constructor</code>. If you'd like to get a particular plugin instance, retrieve it directly from an element: <code>$('[rel=popover]').data('popover')</code>.</p>
 
     <h3 id="js-noconflict">No conflict</h3>
     <p>Sometimes it is necessary to use Bootstrap plugins with other UI frameworks. In these circumstances, namespace collisions can occasionally occur. If this happens, you may call <code>.noConflict</code> on the plugin you wish to revert the value of.</p>
-{% highlight js %}
-var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
-$.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the bootstrap functionality
-{% endhighlight %}
+<div>
+  <pre><code class='js'>var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
+$.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the bootstrap functionality</code></pre>
+</div>
+
 
     <h3 id="js-events">Events</h3>
     <p>Bootstrap provides custom events for most plugin's unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. <code>show</code>) is triggered at the start of an event, and its past participle form (ex. <code>shown</code>) is trigger on the completion of an action.</p>
     <p>As of 3.0.0, all bootstrap events are namespaced.</p>
     <p>All infinitive events provide <code>preventDefault</code> functionality. This provides the ability to stop the execution of an action before it starts.</p>
-{% highlight js %}
-$('#myModal').on('show.bs.modal', function (e) {
+<div>
+  <pre><code class='js'>$('#myModal').on('show.bs.modal', function (e) {
   if (!data) return e.preventDefault() // stops modal from being shown
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
   </div>
 
 
@@ -121,25 +251,26 @@ $('#myModal').on('show.bs.modal', function (e) {
         </div><!-- /.modal-dalog -->
       </div><!-- /.modal -->
     </div><!-- /example -->
-{% highlight html %}
-<div class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>One fine body&hellip;</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dalog -->
-</div><!-- /.modal -->
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;div class=&quot;modal fade&quot;&gt;
+  &lt;div class=&quot;modal-dialog&quot;&gt;
+    &lt;div class=&quot;modal-content&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+        &lt;h4 class=&quot;modal-title&quot;&gt;Modal title&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-body&quot;&gt;
+        &lt;p&gt;One fine body&amp;hellip;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;modal-footer&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;&lt;!-- /.modal-content --&gt;
+  &lt;/div&gt;&lt;!-- /.modal-dalog --&gt;
+&lt;/div&gt;&lt;!-- /.modal --&gt;</code></pre>
+</div>
+
 
     <h3>Live demo</h3>
     <p>Toggle a modal via JavaScript by clicking the button below. It will slide down and fade in from the top of the page.</p>
@@ -187,29 +318,30 @@ $('#myModal').on('show.bs.modal', function (e) {
     <div class="bs-example" style="padding-bottom: 24px;">
       <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Launch demo modal</a>
     </div><!-- /example -->
-{% highlight html %}
-  <!-- Button trigger modal -->
-  <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Launch demo modal</a>
+<div>
+  <pre><code class='html'>&lt;!-- Button trigger modal --&gt;
+  &lt;a data-toggle=&quot;modal&quot; href=&quot;#myModal&quot; class=&quot;btn btn-primary btn-large&quot;&gt;Launch demo modal&lt;/a&gt;
 
-  <!-- Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Modal title</h4>
-        </div>
-        <div class="modal-body">
+  &lt;!-- Modal --&gt;
+  &lt;div class=&quot;modal&quot; id=&quot;myModal&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot;&gt;
+      &lt;div class=&quot;modal-content&quot;&gt;
+        &lt;div class=&quot;modal-header&quot;&gt;
+          &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+          &lt;h4 class=&quot;modal-title&quot;&gt;Modal title&lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;modal-body&quot;&gt;
           ...
-        </div>
-        <div class="modal-footer">
-          <a href="#" class="btn">Close</a>
-          <a href="#" class="btn btn-primary">Save changes</a>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dalog -->
-  </div><!-- /.modal -->
-{% endhighlight %}
+        &lt;/div&gt;
+        &lt;div class=&quot;modal-footer&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;btn&quot;&gt;Close&lt;/a&gt;
+          &lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;&lt;!-- /.modal-content --&gt;
+    &lt;/div&gt;&lt;!-- /.modal-dalog --&gt;
+  &lt;/div&gt;&lt;!-- /.modal --&gt;</code></pre>
+</div>
+
 
 
 
@@ -217,13 +349,17 @@ $('#myModal').on('show.bs.modal', function (e) {
 
     <h3>Via data attributes</h3>
     <p>Activate a modal without writing JavaScript. Set <code>data-toggle="modal"</code> on a controller element, like a button, along with a <code>data-target="#foo"</code> or <code>href="#foo"</code> to target a specific modal to toggle.</p>
-{% highlight html %}
-<button type="button" data-toggle="modal" data-target="#myModal">Launch modal</button>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal&quot;&gt;Launch modal&lt;/button&gt;</code></pre>
+</div>
+
 
     <h3>Via JavaScript</h3>
     <p>Call a modal with id <code>myModal</code> with a single line of JavaScript:</p>
-    {% highlight js %}$('#myModal').modal(options){% endhighlight %}
+    <div>
+  <pre><code class='js'>$('#myModal').modal(options)</code></pre>
+</div>
+
 
     <h3>Options</h3>
     <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-backdrop=""</code>.</p>
@@ -260,9 +396,10 @@ $('#myModal').on('show.bs.modal', function (e) {
          <td>path</td>
          <td>false</td>
          <td><p>If a remote url is provided, content will be loaded via jQuery's <code>load</code> method and injected into the <code>.modal-body</code>. If you're using the data api, you may alternatively use the <code>href</code> tag to specify the remote source. An example of this is shown below:</p>
-{% highlight html %}
-<a data-toggle="modal" href="remote.html" data-target="#modal">Click me</a>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;a data-toggle=&quot;modal&quot; href=&quot;remote.html&quot; data-target=&quot;#modal&quot;&gt;Click me&lt;/a&gt;</code></pre>
+</div>
+
        </tr>
       </tbody>
     </table>
@@ -271,23 +408,33 @@ $('#myModal').on('show.bs.modal', function (e) {
 
     <h4>.modal(options)</h4>
     <p>Activates your content as a modal. Accepts an optional options <code>object</code>.</p>
-{% highlight js %}
-$('#myModal').modal({
+<div>
+  <pre><code class='js'>$('#myModal').modal({
   keyboard: false
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
 
     <h4>.modal('toggle')</h4>
     <p>Manually toggles a modal.</p>
-    {% highlight js %}$('#myModal').modal('toggle'){% endhighlight %}
+    <div>
+  <pre><code class='js'>$('#myModal').modal('toggle')</code></pre>
+</div>
+
 
     <h4>.modal('show')</h4>
     <p>Manually opens a modal.</p>
-    {% highlight js %}$('#myModal').modal('show'){% endhighlight %}
+    <div>
+  <pre><code class='js'>$('#myModal').modal('show')</code></pre>
+</div>
+
 
     <h4>.modal('hide')</h4>
     <p>Manually hides a modal.</p>
-    {% highlight js %}$('#myModal').modal('hide'){% endhighlight %}
+    <div>
+  <pre><code class='js'>$('#myModal').modal('hide')</code></pre>
+</div>
+
 
     <h3>Events</h3>
     <p>Bootstrap's modal class exposes a few events for hooking into modal functionality.</p>
@@ -317,11 +464,12 @@ $('#myModal').modal({
        </tr>
       </tbody>
     </table>
-{% highlight js %}
-$('#myModal').on('hidden.bs.modal', function () {
+<div>
+  <pre><code class='js'>$('#myModal').on('hidden.bs.modal', function () {
   // do something…
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
   </div>
 
 
@@ -427,31 +575,34 @@ $('#myModal').on('hidden.bs.modal', function () {
 
           <h3>Via data attributes</h3>
           <p>Add <code>data-toggle="dropdown"</code> to a link or button to toggle a dropdown.</p>
-{% highlight html %}
-<div class="dropdown">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;dropdown&quot;&gt;
+  &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt;Dropdown trigger&lt;/a&gt;
+  &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dLabel&quot;&gt;
     ...
-  </ul>
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
           <p>To keep URLs intact, use the <code>data-target</code> attribute instead of <code>href="#"</code>.</p>
-{% highlight html %}
-<div class="dropdown">
-  <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
-    Dropdown <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;dropdown&quot;&gt;
+  &lt;a class=&quot;dropdown-toggle&quot; id=&quot;dLabel&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot; data-target=&quot;#&quot; href=&quot;/page.html&quot;&gt;
+    Dropdown &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dLabel&quot;&gt;
     ...
-  </ul>
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
           <h3>Via JavaScript</h3>
           <p>Call the dropdowns via JavaScript:</p>
-{% highlight js %}
-$('.dropdown-toggle').dropdown()
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$('.dropdown-toggle').dropdown()</code></pre>
+</div>
+
 
           <h3>Options</h3>
           <p><em>None</em></p>
@@ -515,17 +666,19 @@ $('.dropdown-toggle').dropdown()
 
           <h3>Via data attributes</h3>
           <p>To easily add scrollspy behavior to your topbar navigation, add <code>data-spy="scroll"</code> to the element you want to spy on (most typically this would be the <code>&lt;body&gt;</code>. Then add the <code>data-target</code> attribute with the ID or class of the parent element of any Bootstrap <code>.nav</code> component.</p>
-{% highlight html %}
-<body data-spy="scroll" data-target="#navbar-example">
+<div>
+  <pre><code class='html'>&lt;body data-spy=&quot;scroll&quot; data-target=&quot;#navbar-example&quot;&gt;
   ...
-</body>
-{% endhighlight %}
+&lt;/body&gt;</code></pre>
+</div>
+
 
           <h3>Via JavaScript</h3>
           <p>Call the scrollspy via JavaScript:</p>
-{% highlight js %}
-$('#navbar-example').scrollspy()
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$('#navbar-example').scrollspy()</code></pre>
+</div>
+
 
           <div class="bs-callout">
             <h4>Resolvable ID targets required</h4>
@@ -535,11 +688,12 @@ $('#navbar-example').scrollspy()
           <h3>Methods</h3>
           <h4>.scrollspy('refresh')</h4>
           <p>When using scrollspy in conjunction with adding or removing of elements from the DOM, you'll need to call the refresh method like so:</p>
-{% highlight js %}
-$('[data-spy="scroll"]').each(function () {
+<div>
+  <pre><code class='js'>$('[data-spy=&quot;scroll&quot;]').each(function () {
   var $spy = $(this).scrollspy('refresh')
-});
-{% endhighlight %}
+});</code></pre>
+</div>
+
 
 
           <h3>Options</h3>
@@ -578,11 +732,12 @@ $('[data-spy="scroll"]').each(function () {
             </tr>
             </tbody>
           </table>
-{% highlight js %}
-$('#myScrollspy').on('activate.bs.scrollspy', function () {
+<div>
+  <pre><code class='js'>$('#myScrollspy').on('activate.bs.scrollspy', function () {
   // do something…
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
         </section>
 
 
@@ -631,31 +786,34 @@ $('#myScrollspy').on('activate.bs.scrollspy', function () {
 
           <h2>Usage</h2>
           <p>Enable tabbable tabs via JavaScript (each tab needs to be activated individually):</p>
-{% highlight js %}
-$('#myTab a').click(function (e) {
+<div>
+  <pre><code class='js'>$('#myTab a').click(function (e) {
   e.preventDefault();
   $(this).tab('show');
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
 
           <p>You can activate individual tabs in several ways:</p>
-{% highlight js %}
-$('#myTab a[href="#profile"]').tab('show'); // Select tab by name
+<div>
+  <pre><code class='js'>$('#myTab a[href=&quot;#profile&quot;]').tab('show'); // Select tab by name
 $('#myTab a:first').tab('show'); // Select first tab
 $('#myTab a:last').tab('show'); // Select last tab
-$('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
-{% endhighlight %}
+$('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)</code></pre>
+</div>
+
 
           <h3>Markup</h3>
           <p>You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code>data-toggle="tab"</code> or <code>data-toggle="pill"</code> on an element. Adding the <code>nav</code> and <code>nav-tabs</code> classes to the tab <code>ul</code> will apply the Bootstrap tab styling.</p>
-{% highlight html %}
-<ul class="nav nav-tabs">
-  <li><a href="#home" data-toggle="tab">Home</a></li>
-  <li><a href="#profile" data-toggle="tab">Profile</a></li>
-  <li><a href="#messages" data-toggle="tab">Messages</a></li>
-  <li><a href="#settings" data-toggle="tab">Settings</a></li>
-</ul>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;ul class=&quot;nav nav-tabs&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#home&quot; data-toggle=&quot;tab&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#profile&quot; data-toggle=&quot;tab&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#messages&quot; data-toggle=&quot;tab&quot;&gt;Messages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#settings&quot; data-toggle=&quot;tab&quot;&gt;Settings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+
 
           <p>To make tabs fade in, add <code>.fade</code> to each <code>.tab-pane</code>.</p>
 
@@ -664,27 +822,28 @@ $('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
           <p>
             Activates a tab element and content container. Tab should have either a <code>data-target</code> or an <code>href</code> targeting a container node in the DOM.
           </p>
-{% highlight html %}
-<ul class="nav nav-tabs" id="myTab">
-  <li class="active"><a href="#home">Home</a></li>
-  <li><a href="#profile">Profile</a></li>
-  <li><a href="#messages">Messages</a></li>
-  <li><a href="#settings">Settings</a></li>
-</ul>
+<div>
+  <pre><code class='html'>&lt;ul class=&quot;nav nav-tabs&quot; id=&quot;myTab&quot;&gt;
+  &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#home&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#profile&quot;&gt;Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#messages&quot;&gt;Messages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#settings&quot;&gt;Settings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-<div class="tab-content">
-  <div class="tab-pane active" id="home">...</div>
-  <div class="tab-pane" id="profile">...</div>
-  <div class="tab-pane" id="messages">...</div>
-  <div class="tab-pane" id="settings">...</div>
-</div>
+&lt;div class=&quot;tab-content&quot;&gt;
+  &lt;div class=&quot;tab-pane active&quot; id=&quot;home&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;tab-pane&quot; id=&quot;profile&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;tab-pane&quot; id=&quot;messages&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;tab-pane&quot; id=&quot;settings&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;
 
-<script>
+&lt;script&gt;
   $(function () {
     $('#myTab a:last').tab('show');
   })
-</script>
-{% endhighlight %}
+&lt;/script&gt;</code></pre>
+</div>
+
 
           <h3>Events</h3>
           <table class="table table-bordered table-striped">
@@ -705,12 +864,13 @@ $('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
              </tr>
             </tbody>
           </table>
-{% highlight js %}
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+<div>
+  <pre><code class='js'>$('a[data-toggle=&quot;tab&quot;]').on('shown.bs.tab', function (e) {
   e.target // activated tab
   e.relatedTarget // previous tab
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
         </section>
 
 
@@ -748,9 +908,10 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
           <h2>Usage</h2>
           <p>Trigger the tooltip via JavaScript:</p>
-{% highlight js %}
-$('#example').tooltip(options)
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$('#example').tooltip(options)</code></pre>
+</div>
+
 
           <h3>Options</h3>
           <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-animation=""</code>.</p>
@@ -826,9 +987,10 @@ $('#example').tooltip(options)
           </div>
 
           <h3>Markup</h3>
-{% highlight html %}
-<a href="#" data-toggle="tooltip" title="first tooltip">Hover over me</a>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;a href=&quot;#&quot; data-toggle=&quot;tooltip&quot; title=&quot;first tooltip&quot;&gt;Hover over me&lt;/a&gt;</code></pre>
+</div>
+
 
           <h3>Methods</h3>
 
@@ -837,19 +999,31 @@ $('#example').tooltip(options)
 
           <h4>.tooltip('show')</h4>
           <p>Reveals an element's tooltip.</p>
-          {% highlight js %}$('#element').tooltip('show'){% endhighlight %}
+          <div>
+  <pre><code class='js'>$('#element').tooltip('show')</code></pre>
+</div>
+
 
           <h4>.tooltip('hide')</h4>
           <p>Hides an element's tooltip.</p>
-          {% highlight js %}$('#element').tooltip('hide'){% endhighlight %}
+          <div>
+  <pre><code class='js'>$('#element').tooltip('hide')</code></pre>
+</div>
+
 
           <h4>.tooltip('toggle')</h4>
           <p>Toggles an element's tooltip.</p>
-          {% highlight js %}$('#element').tooltip('toggle'){% endhighlight %}
+          <div>
+  <pre><code class='js'>$('#element').tooltip('toggle')</code></pre>
+</div>
+
 
           <h4>.tooltip('destroy')</h4>
           <p>Hides and destroys an element's tooltip.</p>
-          {% highlight js %}$('#element').tooltip('destroy'){% endhighlight %}
+          <div>
+  <pre><code class='js'>$('#element').tooltip('destroy')</code></pre>
+</div>
+
         </section>
 
 
@@ -928,7 +1102,10 @@ $('#example').tooltip(options)
 
         <h2>Usage</h2>
         <p>Enable popovers via JavaScript:</p>
-        {% highlight js %}$('#example').popover(options){% endhighlight %}
+        <div>
+  <pre><code class='js'>$('#example').popover(options)</code></pre>
+</div>
+
 
         <h3>Options</h3>
         <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-animation=""</code>.</p>
@@ -1018,19 +1195,31 @@ $('#example').tooltip(options)
 
         <h4>.popover('show')</h4>
         <p>Reveals an elements popover.</p>
-        {% highlight js %}$('#element').popover('show'){% endhighlight %}
+        <div>
+  <pre><code class='js'>$('#element').popover('show')</code></pre>
+</div>
+
 
         <h4>.popover('hide')</h4>
         <p>Hides an elements popover.</p>
-        {% highlight js %}$('#element').popover('hide'){% endhighlight %}
+        <div>
+  <pre><code class='js'>$('#element').popover('hide')</code></pre>
+</div>
+
 
         <h4>.popover('toggle')</h4>
         <p>Toggles an elements popover.</p>
-        {% highlight js %}$('#element').popover('toggle'){% endhighlight %}
+        <div>
+  <pre><code class='js'>$('#element').popover('toggle')</code></pre>
+</div>
+
 
         <h4>.popover('destroy')</h4>
         <p>Hides and destroys an element's popover.</p>
-        {% highlight js %}$('#element').popover('destroy'){% endhighlight %}
+        <div>
+  <pre><code class='js'>$('#element').popover('destroy')</code></pre>
+</div>
+
       </section>
 
 
@@ -1069,11 +1258,17 @@ $('#example').tooltip(options)
 
         <h2>Usage</h2>
         <p>Enable dismissal of an alert via JavaScript:</p>
-        {% highlight js %}$(".alert").alert(){% endhighlight %}
+        <div>
+  <pre><code class='js'>$(&quot;.alert&quot;).alert()</code></pre>
+</div>
+
 
         <h3>Markup</h3>
         <p>Just add <code>data-dismiss="alert"</code> to your close button to automatically give an alert close functionality.</p>
-        {% highlight html %}<a class="close" data-dismiss="alert" href="#">&times;</a>{% endhighlight %}
+        <div>
+  <pre><code class='html'>&lt;a class=&quot;close&quot; data-dismiss=&quot;alert&quot; href=&quot;#&quot;&gt;&amp;times;&lt;/a&gt;</code></pre>
+</div>
+
 
         <h3>Methods</h3>
 
@@ -1082,7 +1277,10 @@ $('#example').tooltip(options)
 
         <h4>.alert('close')</h4>
         <p>Closes an alert.</p>
-        {% highlight js %}$(".alert").alert('close'){% endhighlight %}
+        <div>
+  <pre><code class='js'>$(&quot;.alert&quot;).alert('close')</code></pre>
+</div>
+
 
 
         <h3>Events</h3>
@@ -1105,11 +1303,12 @@ $('#example').tooltip(options)
             </tr>
           </tbody>
         </table>
-{% highlight js %}
-$('#my-alert').bind('closed.bs.alert', function () {
+<div>
+  <pre><code class='js'>$('#my-alert').bind('closed.bs.alert', function () {
   // do something…
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
       </div>
 
 
@@ -1131,20 +1330,22 @@ $('#my-alert').bind('closed.bs.alert', function () {
                 Loading state
               </button>
             </div><!-- /example -->
-{% highlight html %}
-<button type="button" id="fat-btn" data-loading-text="Loading..." class="btn btn-primary">
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; id=&quot;fat-btn&quot; data-loading-text=&quot;Loading...&quot; class=&quot;btn btn-primary&quot;&gt;
   Loading state
-</button>
-{% endhighlight %}
+&lt;/button&gt;</code></pre>
+</div>
+
 
             <h4>Single toggle</h4>
             <p>Add <code>data-toggle="button"</code> to activate toggling on a single button.</p>
             <div class="bs-example" style="padding-bottom: 24px;">
               <button type="button" class="btn btn-primary" data-toggle="button">Single toggle</button>
             </div><!-- /example -->
-{% highlight html %}
-<button type="button" class="btn btn-primary" data-toggle="button">Single toggle</button>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;button&quot;&gt;Single toggle&lt;/button&gt;</code></pre>
+</div>
+
 
             <h4>Checkbox</h4>
             <p>Add <code>data-toggle="buttons-checkbox"</code> for checkbox style toggling on btn-group.</p>
@@ -1161,19 +1362,20 @@ $('#my-alert').bind('closed.bs.alert', function () {
                 </label>
               </div>
             </div><!-- /example -->
-{% highlight html %}
-<div class="btn-group" data-toggle="buttons-checkbox">
-  <label class="btn btn-primary">
-    <input type="checkbox"> Option 1
-  </label>
-  <label class="btn btn-primary">
-    <input type="checkbox"> Option 2
-  </label>
-  <label class="btn btn-primary">
-    <input type="checkbox"> Option 3
-  </label>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;btn-group&quot; data-toggle=&quot;buttons-checkbox&quot;&gt;
+  &lt;label class=&quot;btn btn-primary&quot;&gt;
+    &lt;input type=&quot;checkbox&quot;&gt; Option 1
+  &lt;/label&gt;
+  &lt;label class=&quot;btn btn-primary&quot;&gt;
+    &lt;input type=&quot;checkbox&quot;&gt; Option 2
+  &lt;/label&gt;
+  &lt;label class=&quot;btn btn-primary&quot;&gt;
+    &lt;input type=&quot;checkbox&quot;&gt; Option 3
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
             <h4>Radio</h4>
             <p>Add <code>data-toggle="buttons-radio"</code> for radio style toggling on btn-group.</p>
@@ -1190,19 +1392,20 @@ $('#my-alert').bind('closed.bs.alert', function () {
                 </label>
               </div>
             </div><!-- /example -->
-{% highlight html %}
-<div class="btn-group" data-toggle="buttons-radio">
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option1"> Option 1
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option2"> Option 2
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" name="options" id="option3"> Option 3
-  </label>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;btn-group&quot; data-toggle=&quot;buttons-radio&quot;&gt;
+  &lt;label class=&quot;btn btn-primary&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;options&quot; id=&quot;option1&quot;&gt; Option 1
+  &lt;/label&gt;
+  &lt;label class=&quot;btn btn-primary&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;options&quot; id=&quot;option2&quot;&gt; Option 2
+  &lt;/label&gt;
+  &lt;label class=&quot;btn btn-primary&quot;&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;options&quot; id=&quot;option3&quot;&gt; Option 3
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
 
             <hr class="bs-docs-separator">
@@ -1210,9 +1413,10 @@ $('#my-alert').bind('closed.bs.alert', function () {
 
             <h2>Usage</h2>
             <p>Enable buttons via JavaScript:</p>
-{% highlight js %}
-$('.nav-tabs').button()
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$('.nav-tabs').button()</code></pre>
+</div>
+
 
             <h3>Markup</h3>
             <p>Data attributes are integral to the button plugin. Check out the example code below for the various markup types.</p>
@@ -1228,16 +1432,18 @@ $('.nav-tabs').button()
               <h4>Auto toggling</h4>
               <p>You can enable auto toggling of a button by using the <code>data-toggle</code> attribute.</p>
             </div>
-{% highlight html %}
-<button type="button" class="btn" data-toggle="button">...</button>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; class=&quot;btn&quot; data-toggle=&quot;button&quot;&gt;...&lt;/button&gt;</code></pre>
+</div>
+
 
             <h4>$().button('loading')</h4>
             <p>Sets button state to loading - disables button and swaps text to loading text. Loading text should be defined on the button element using the data attribute <code>data-loading-text</code>.
             </p>
-{% highlight html %}
-<button type="button" class="btn" data-loading-text="loading stuff...">...</button>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; class=&quot;btn&quot; data-loading-text=&quot;loading stuff...&quot;&gt;...&lt;/button&gt;</code></pre>
+</div>
+
 
             <div class="bs-callout">
               <h4>Cross-browser compatibility</h4>
@@ -1249,12 +1455,13 @@ $('.nav-tabs').button()
 
             <h4>$().button(string)</h4>
             <p>Resets button state - swaps text to any data defined text state.</p>
-{% highlight html %}
-<button type="button" class="btn" data-complete-text="finished!" >...</button>
-<script>
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; class=&quot;btn&quot; data-complete-text=&quot;finished!&quot; &gt;...&lt;/button&gt;
+&lt;script&gt;
   $('.btn').button('complete')
-</script>
-{% endhighlight %}
+&lt;/script&gt;</code></pre>
+</div>
+
           </div>
 
 
@@ -1317,55 +1524,57 @@ $('.nav-tabs').button()
                 </div>
               </div>
             </div><!-- /example -->
-{% highlight html %}
-<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;accordion&quot; id=&quot;accordion2&quot;&gt;
+  &lt;div class=&quot;accordion-group&quot;&gt;
+    &lt;div class=&quot;accordion-heading&quot;&gt;
+      &lt;a class=&quot;accordion-toggle&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion2&quot; href=&quot;#collapseOne&quot;&gt;
         Collapsible Group Item #1
-      </a>
-    </div>
-    <div id="collapseOne" class="accordion-body collapse in">
-      <div class="accordion-inner">
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseOne&quot; class=&quot;accordion-body collapse in&quot;&gt;
+      &lt;div class=&quot;accordion-inner&quot;&gt;
         ...
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;accordion-group&quot;&gt;
+    &lt;div class=&quot;accordion-heading&quot;&gt;
+      &lt;a class=&quot;accordion-toggle&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion2&quot; href=&quot;#collapseTwo&quot;&gt;
         Collapsible Group Item #2
-      </a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse">
-      <div class="accordion-inner">
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseTwo&quot; class=&quot;accordion-body collapse&quot;&gt;
+      &lt;div class=&quot;accordion-inner&quot;&gt;
         ...
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;accordion-group&quot;&gt;
+    &lt;div class=&quot;accordion-heading&quot;&gt;
+      &lt;a class=&quot;accordion-toggle&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion2&quot; href=&quot;#collapseThree&quot;&gt;
         Collapsible Group Item #3
-      </a>
-    </div>
-    <div id="collapseThree" class="accordion-body collapse">
-      <div class="accordion-inner">
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseThree&quot; class=&quot;accordion-body collapse&quot;&gt;
+      &lt;div class=&quot;accordion-inner&quot;&gt;
         ...
-      </div>
-    </div>
-  </div>
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
             <p>You can also use the plugin without the accordion markup. Make a button toggle the expanding and collapsing of another element.</p>
-{% highlight html %}
-<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo">
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#demo&quot;&gt;
   simple collapsible
-</button>
+&lt;/button&gt;
 
-<div id="demo" class="collapse in">...</div>
-{% endhighlight %}
+&lt;div id=&quot;demo&quot; class=&quot;collapse in&quot;&gt;...&lt;/div&gt;</code></pre>
+</div>
+
 
 
             <hr class="bs-docs-separator">
@@ -1379,9 +1588,10 @@ $('.nav-tabs').button()
 
             <h3>Via JavaScript</h3>
             <p>Enable manually with:</p>
-{% highlight js %}
-$(".collapse").collapse()
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$(&quot;.collapse&quot;).collapse()</code></pre>
+</div>
+
 
             <h3>Options</h3>
             <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-parent=""</code>.</p>
@@ -1415,11 +1625,12 @@ $(".collapse").collapse()
 
             <h4>.collapse(options)</h4>
             <p>Activates your content as a collapsible element. Accepts an optional options <code>object</code>.
-{% highlight js %}
-$('#myCollapsible').collapse({
+<div>
+  <pre><code class='js'>$('#myCollapsible').collapse({
   toggle: false
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
 
             <h4>.collapse('toggle')</h4>
             <p>Toggles a collapsible element to shown or hidden.</p>
@@ -1460,11 +1671,12 @@ $('#myCollapsible').collapse({
                </tr>
               </tbody>
             </table>
-{% highlight js %}
-$('#myCollapsible').on('hidden.bs.collapse', function () {
+<div>
+  <pre><code class='js'>$('#myCollapsible').on('hidden.bs.collapse', function () {
   // do something…
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
           </section>
 
 
@@ -1504,35 +1716,36 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
                 </a>
               </div>
             </div><!-- /example -->
-{% highlight html %}
-<div id="carousel-example-generic" class="carousel slide">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+<div>
+  <pre><code class='html'>&lt;div id=&quot;carousel-example-generic&quot; class=&quot;carousel slide&quot;&gt;
+  &lt;!-- Indicators --&gt;
+  &lt;ol class=&quot;carousel-indicators&quot;&gt;
+    &lt;li data-target=&quot;#carousel-example-generic&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;
+    &lt;li data-target=&quot;#carousel-example-generic&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;
+    &lt;li data-target=&quot;#carousel-example-generic&quot; data-slide-to=&quot;2&quot;&gt;&lt;/li&gt;
+  &lt;/ol&gt;
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="..." alt="">
-      <div class="carousel-caption">
+  &lt;!-- Wrapper for slides --&gt;
+  &lt;div class=&quot;carousel-inner&quot;&gt;
+    &lt;div class=&quot;item active&quot;&gt;
+      &lt;img src=&quot;...&quot; alt=&quot;&quot;&gt;
+      &lt;div class=&quot;carousel-caption&quot;&gt;
         ...
-      </div>
-    </div>
+      &lt;/div&gt;
+    &lt;/div&gt;
     ...
-  </div>
+  &lt;/div&gt;
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
+  &lt;!-- Controls --&gt;
+  &lt;a class=&quot;left carousel-control&quot; href=&quot;#carousel-example-generic&quot; data-slide=&quot;prev&quot;&gt;
+    &lt;span class=&quot;glyphicon glyphicon-chevron-left&quot;&gt;&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;a class=&quot;right carousel-control&quot; href=&quot;#carousel-example-generic&quot; data-slide=&quot;next&quot;&gt;
+    &lt;span class=&quot;glyphicon glyphicon-chevron-right&quot;&gt;&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
             <h3>Optional captions</h3>
             <p>Add captions to your slides easily with the <code>.carousel-caption</code> element within any <code>.item</code>. Place just about any optional HTML within there and it will be automatically aligned and formatted.</p>
@@ -1578,15 +1791,16 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
                 </a>
               </div>
             </div><!-- /example -->
-{% highlight html %}
-<div class="item active">
-  <img src="..." alt="">
-  <div class="carousel-caption">
-    <h3>...</h3>
-    <p>...</p>
-  </div>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;item active&quot;&gt;
+  &lt;img src=&quot;...&quot; alt=&quot;&quot;&gt;
+  &lt;div class=&quot;carousel-caption&quot;&gt;
+    &lt;h3&gt;...&lt;/h3&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
 
 
@@ -1600,9 +1814,10 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
 
             <h3>Via JavaScript</h3>
             <p>Call carousel manually with:</p>
-{% highlight js %}
-$('.carousel').carousel()
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$('.carousel').carousel()</code></pre>
+</div>
+
 
             <h3>Options</h3>
             <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-interval=""</code>.</p>
@@ -1635,11 +1850,12 @@ $('.carousel').carousel()
 
             <h4>.carousel(options)</h4>
             <p>Initializes the carousel with an optional options <code>object</code> and starts cycling through items.</p>
-{% highlight html %}
-$('.carousel').carousel({
+<div>
+  <pre><code class='html'>$('.carousel').carousel({
   interval: 2000
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
 
             <h4>.carousel('cycle')</h4>
             <p>Cycles through the carousel items from left to right.</p>
@@ -1677,11 +1893,12 @@ $('.carousel').carousel({
                </tr>
               </tbody>
             </table>
-            {% highlight js %}
-$('#myCarousel').on('slide.bs.carousel', function () {
+            <div>
+  <pre><code class='js'>$('#myCarousel').on('slide.bs.carousel', function () {
   // do something…
-})
-{% endhighlight %}
+})</code></pre>
+</div>
+
           </section>
 
 
@@ -1703,9 +1920,10 @@ $('#myCarousel').on('slide.bs.carousel', function () {
             <h3>Via data attributes</h3>
             <p>To easily add affix behavior to any element, just add <code>data-spy="affix"</code> to the element you want to spy on. Then use offsets to define when to toggle the pinning of an element on and off.</p>
 
-{% highlight html %}
-<div data-spy="affix" data-offset-top="200">...</div>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;div data-spy=&quot;affix&quot; data-offset-top=&quot;200&quot;&gt;...&lt;/div&gt;</code></pre>
+</div>
+
 
             <div class="bs-callout">
               <h4>Requires positioning</h4>
@@ -1714,18 +1932,20 @@ $('#myCarousel').on('slide.bs.carousel', function () {
 
             <h3>Via JavaScript</h3>
             <p>Call the affix plugin via JavaScript:</p>
-{% highlight js %}
-$('#navbar').affix()
-{% endhighlight %}
+<div>
+  <pre><code class='js'>$('#navbar').affix()</code></pre>
+</div>
+
 
             <h3>Methods</h3>
             <h4>.affix('refresh')</h4>
             <p>When using affix in conjunction with adding or removing of elements from the DOM, you'll want to call the refresh method:</p>
-{% highlight js %}
-$('[data-spy="affix"]').each(function () {
+<div>
+  <pre><code class='js'>$('[data-spy=&quot;affix&quot;]').each(function () {
   $(this).affix('refresh')
-});
-{% endhighlight %}
+});</code></pre>
+</div>
+
 
           <h3>Options</h3>
           <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-offset-top="200"</code>.</p>
@@ -1749,3 +1969,80 @@ $('[data-spy="affix"]').each(function () {
             </tbody>
           </table>
         </section>
+
+        </div>
+      </div>
+
+      <!-- Quick back to top -->
+      <a href="#" class="bs-top">
+        Back to top
+      </a>
+
+    </div>
+
+    <!-- Main docs footer (social buttons, copyright, etc). -->
+    <!-- Footer
+================================================== -->
+<footer class="bs-footer">
+  <div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twitter&repo=bootstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twitter&repo=bootstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+    </li>
+    <li class="follow-btn">
+      <a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @twbootstrap</a>
+    </li>
+    <li class="tweet-btn">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.github.com/bootstrap/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
+    </li>
+  </ul>
+</div>
+
+
+  <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+  <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+  <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+  <ul class="footer-links">
+    <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+    <li class="muted">&middot;</li>
+    <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+    <li class="muted">&middot;</li>
+    <li><a href="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">Changelog</a></li>
+  </ul>
+</footer>
+
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script src="/assets/js/holder/holder.js"></script>
+
+<script src="/assets/js/application.js"></script>
+
+<!-- Analytics
+================================================== -->
+<script>
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  </body>
+</html>

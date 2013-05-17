@@ -1,12 +1,179 @@
----
-layout: default
-title: CSS
-slug: css
-lead: "Fundamental HTML elements styled and enhanced with extensible classes."
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>
+  
+    CSS &middot; Bootstrap
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/assets/css/bootstrap.css" rel="stylesheet">
 
 
-  <!-- Global Bootstrap settings
+<!-- Documentation extras -->
+<link href="/assets/css/docs.css" rel="stylesheet">
+<link href="/assets/css/pygments-manni.css" rel="stylesheet">
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/assets/js/html5shiv.js"></script>
+  <script src="/assets/js/respond/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
+                <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+                               <link rel="shortcut icon" href="/assets/ico/favicon.png">
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-146052-10']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+    <!-- Place anything custom after this. -->
+  </head>
+  <body data-spy="scroll" data-target=".bs-sidebar">
+
+    <!-- Docs master nav -->
+    <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
+  <div class="container">
+    <a href="/" class="navbar-brand">Bootstrap</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="nav-collapse collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/getting-started">Getting started</a>
+        </li>
+        <li class="active">
+          <a href="/css">CSS</a>
+        </li>
+        <li>
+          <a href="/components">Components</a>
+        </li>
+        <li>
+          <a href="/javascript">JavaScript</a>
+        </li>
+        <li>
+          <a href="/customize">Customize</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Docs page layout -->
+    <div class="bs-header">
+      <div class="container">
+        <h1>CSS</h1>
+        <p>Fundamental HTML elements styled and enhanced with extensible classes.</p>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col col-lg-3">
+          <div class="bs-sidebar">
+            <ul class="nav bs-sidenav">
+              
+                 <li>
+  <a href="#overview">Overview</a>
+  <ul class="nav">
+    <li><a href="#overview-doctype">HTML5 doctype</a></li>
+    <li><a href="#overview-mobile">Mobile first</a></li>
+    <li><a href="#overview-responsive-images">Responsive images</a></li>
+    <li><a href="#overview-type-links">Type and links</a></li>
+    <li><a href="#overview-normalize">Normalize</a></li>
+    <li><a href="#overview-container">Container</a></li>
+  </ul>
+</li>
+<li>
+  <a href="#grid">Grid system</a>
+  <ul class="nav">
+    <li><a href="#grid-example">Example usage</a></li>
+    <li><a href="#grid-offsetting">Offset columns</a></li>
+    <li><a href="#grid-nesting">Nested columns</a></li>
+    <li><a href="#grid-column-ordering">Column ordering</a></li>
+    <li><a href="#grid-small">Small device grid</a></li>
+    <li><a href="#grid-less">LESS mixins and variables</a></li>
+  </ul>
+</li>
+<li>
+  <a href="#type">Typography</a>
+  <ul class="nav">
+    <li><a href="#type-headings">Headings</a></li>
+    <li><a href="#type-body-copy">Body copy</a></li>
+    <li><a href="#type-emphasis">Emphasis</a></li>
+    <li><a href="#type-abbreviations">Abbreviations</a></li>
+    <li><a href="#type-addresses">Addresses</a></li>
+    <li><a href="#type-blockquotes">Blockquotes</a></li>
+    <li><a href="#type-lists">Lists</a></li>
+  </ul>
+</li>
+<li><a href="#code">Code</a></li>
+<li>
+  <a href="#tables">Tables</a>
+  <ul class="nav">
+    <li><a href="#tables-example">Basic example</a></li>
+    <li><a href="#tables-striped">Zebra striping</a></li>
+    <li><a href="#tables-bordered">Bordered tables</a></li>
+    <li><a href="#tables-hover-rows">Hover rows</a></li>
+    <li><a href="#tables-condensed">Condensed tables</a></li>
+    <li><a href="#tables-row-classes">Contextual row classes</a></li>
+  </ul>
+</li>
+<li>
+  <a href="#forms">Forms</a>
+  <ul class="nav">
+    <li><a href="#forms-example">Basic example</a></li>
+    <li><a href="#forms-inline">Inline variation</a></li>
+    <li><a href="#forms-horizontal">Horizontal variation</a></li>
+    <li><a href="#forms-controls">Supported controls</a></li>
+    <li><a href="#forms-control-states">Control states</a></li>
+    <li><a href="#forms-input-groups">Input groups</a></li>
+    <li><a href="#forms-control-sizes">Control sizing</a></li>
+    <li><a href="#forms-help-text">Help text</a></li>
+  </ul>
+</li>
+<li>
+  <a href="#buttons">Buttons</a>
+  <ul class="nav">
+    <li><a href="#buttons-options">Button options</a></li>
+    <li><a href="#buttons-sizes">Sizes</a></li>
+    <li><a href="#buttons-disabled">Disabled</a></li>
+    <li><a href="#buttons-tags">Button tags</a></li>
+  </ul>
+</li>
+<li><a href="#images">Images</a></li>
+<li><a href="#helper-classes">Helper classes</a></li>
+<li><a href="#responsive-utilities">Responsive utilities</a></li>
+
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col col-lg-9">
+            <!-- Global Bootstrap settings
   ================================================== -->
   <div class="bs-docs-section" id="overview">
     <div class="page-header">
@@ -16,19 +183,21 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
 
     <h3 id="overview-doctype">HTML5 doctype required</h3>
     <p>Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.</p>
-{% highlight html %}
-<!DOCTYPE html>
-<html lang="en">
+<div>
+  <pre><code class='html'>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
   ...
-</html>
-{% endhighlight %}
+&lt;/html&gt;</code></pre>
+</div>
+
 
     <h3 id="overview-mobile">Mobile first</h3>
     <p>With Bootstrap 2, we added optional mobile friendly styles for key aspects of the framework. With Bootstrap 3, we've rewritten the project to be mobile friendly from the start. Instead of adding on optional mobile styles, they're baked right into the core. In fact, <strong>Bootstrap is mobile first</strong>. Mobile first styles can be found throughout the entire library instead of in separate files.</p>
     <p>To ensure proper rendering and touch zooming, <strong>add the viewport meta tag</strong> to your <code>&lt;head&gt;</code>.</p>
-{% highlight html %}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>
+</div>
+
 
     <h3 id="overview-responsive-images">Responsive images</h3>
     <p>We automatically attempt to scale images to appropriate sizes with a global <code>max-width: 100%;</code> on all <code>&lt;img&gt;</code> elements. If you run into problems (e.g., with Google Maps), be sure to disable this property on a per-case basis.</p>
@@ -48,11 +217,12 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
 
     <h3 id="overview-container">Centering with container</h3>
     <p>Easily center a page's contents by wrapping its contents in a container. Containers set `max-width` at various media query breakpoints to match our grid system.</p>
-{% highlight html %}
-<div class="container">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;container&quot;&gt;
   ...
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
   </div>
 
 
@@ -93,31 +263,32 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <div class="col col-lg-6">6</div>
       </div>
     </div>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-1&quot;&gt;1&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-4&quot;&gt;4&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-4&quot;&gt;4&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-4&quot;&gt;4&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-6&quot;&gt;6&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-6&quot;&gt;6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-<div class="row">
-  <div class="col col-lg-4">4</div>
-  <div class="col col-lg-4">4</div>
-  <div class="col col-lg-4">4</div>
-</div>
-<div class="row">
-  <div class="col col-lg-6">6</div>
-  <div class="col col-lg-6">6</div>
-</div>
-{% endhighlight %}
+
 
     <h3 id="grid-offsetting">Offsetting columns</h3>
     <p>Move columns to the right using <code>.col-offset-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.col-offset-4</code> moves <code>.col col-lg-4</code> over four columns.</p>
@@ -134,19 +305,20 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <div class="col col-lg-6 col-offset-3">6 offset 3</div>
       </div><!-- /row -->
     </div>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-4">...</div>
-  <div class="col col-lg-4 col-offset-4">...</div>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-4&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-4 col-offset-4&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-3 col-offset-3&quot;&gt;3 offset 3&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-3 col-offset-3&quot;&gt;3 offset 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-6 col-offset-3&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-<div class="row">
-  <div class="col col-lg-3 col-offset-3">3 offset 3</div>
-  <div class="col col-lg-3 col-offset-3">3 offset 3</div>
-</div>
-<div class="row">
-  <div class="col col-lg-6 col-offset-3">...</div>
-</div>
-{% endhighlight %}
+
 
 
     <h3 id="grid-nesting">Nesting columns</h3>
@@ -164,21 +336,22 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         </div>
       </div>
     </div>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-9">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-9&quot;&gt;
     Level 1: 9 columns
-    <div class="row">
-      <div class="col col-lg-6">
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;col col-lg-6&quot;&gt;
         Level 2: 6 columns
-      </div>
-      <div class="col col-lg-6">
+      &lt;/div&gt;
+      &lt;div class=&quot;col col-lg-6&quot;&gt;
         Level 2: 6 columns
-      </div>
-    </div>
-  </div>
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
     <h3 id="grid-column-ordering">Column ordering</h3>
     <p>Easily change the order of our built-in grid columns with <code>.col-push-*</code> and <code>.col-pull-*</code> modifier classes.</p>
@@ -187,12 +360,13 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
       <div class="col col-lg-3 col-pull-9">3</div>
     </div>
 
-{% highlight html %}
-<div class="row show-grid">
-  <div class="col col-lg-9 col-push-3">9</div>
-  <div class="col col-lg-3 col-pull-9">3</div>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;row show-grid&quot;&gt;
+  &lt;div class=&quot;col col-lg-9 col-push-3&quot;&gt;9&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-3 col-pull-9&quot;&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
     <h3 id="grid-small">Small device grid</h3>
     <p>Use the small device grid classes, like <code>.col-sm-6</code>, to create columned layouts on phone and tablet devices (anything under 768px). Offsets, pushes, and pulls are not available with the small grid at this time.</p>
@@ -201,29 +375,31 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
       <div class="col col-lg-4 col-sm-6">4 cols, 6 small cols</div>
       <div class="col col-lg-4 col-sm-12">4 cols, 12 small cols</div>
     </div>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-4 col-sm-6">4 cols, 6 small cols</div>
-  <div class="col col-lg-4 col-sm-6">4 cols, 6 small cols</div>
-  <div class="col col-lg-4 col-sm-12">4 cols, 12 small cols</div>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-4 col-sm-6&quot;&gt;4 cols, 6 small cols&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-4 col-sm-6&quot;&gt;4 cols, 6 small cols&lt;/div&gt;
+  &lt;div class=&quot;col col-lg-4 col-sm-12&quot;&gt;4 cols, 12 small cols&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
     <h3 id="grid-less">LESS mixins and variables</h3>
     <p>In addition to <a href="#grid-example">prebuilt grid classes</a> for fast layouts, Bootstrap includes LESS variables and mixins for quickly generating your own simple, semantic layouts.</p>
 
     <h4>Variables</h4>
     <p>Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.</p>
-{% highlight css %}
-@grid-columns:              12;
+<div>
+  <pre><code class='css'>@grid-columns:              12;
 @grid-gutter-width:         30px;
-@grid-float-breakpoint:     768px;
-{% endhighlight %}
+@grid-float-breakpoint:     768px;</code></pre>
+</div>
+
 
     <h4>Mixins</h4>
     <p>Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.</p>
-{% highlight css %}
-// Creates a wrapper for a series of columns
+<div>
+  <pre><code class='css'>// Creates a wrapper for a series of columns
 .make-row() {
   // Negative margin the row out to align the content of columns
   margin-left:  (@grid-gutter-width / -2);
@@ -251,13 +427,14 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
   @media (min-width: @grid-float-breakpoint) {
     margin-left: percentage((@columns / @grid-columns));
   }
-}
-{% endhighlight %}
+}</code></pre>
+</div>
+
 
     <h4>Example usage</h4>
     <p>You can modify the variables to your own custom values, or just use the mixins with their default values. Here's an example of using the default settings to create a two-column layout with a gap between.</p>
-{% highlight css %}
-.wrapper {
+<div>
+  <pre><code class='css'>.wrapper {
   .make-row();
 }
 .content-main {
@@ -266,14 +443,16 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
 .content-secondary {
   .make-column(3);
   .make-column-offset(1);
-}
-{% endhighlight %}
-{% highlight html %}
-<div class="wrapper">
-  <div class="content-main">...</div>
-  <div class="content-secondary">...</div>
+}</code></pre>
 </div>
-{% endhighlight %}
+
+<div>
+  <pre><code class='html'>&lt;div class=&quot;wrapper&quot;&gt;
+  &lt;div class=&quot;content-main&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;content-secondary&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+
 
   </div>
 
@@ -321,14 +500,15 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         </tbody>
       </table>
     </div>
-{% highlight html %}
-<h1>...</h1>
-<h2>...</h2>
-<h3>...</h3>
-<h4>...</h4>
-<h5>...</h5>
-<h6>...</h6>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;h1&gt;...&lt;/h1&gt;
+&lt;h2&gt;...&lt;/h2&gt;
+&lt;h3&gt;...&lt;/h3&gt;
+&lt;h4&gt;...&lt;/h4&gt;
+&lt;h5&gt;...&lt;/h5&gt;
+&lt;h6&gt;...&lt;/h6&gt;</code></pre>
+</div>
+
 
     <!-- Body copy -->
     <h2 id="type-body-copy">Body copy</h2>
@@ -338,9 +518,10 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
       <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
       <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
     </div>
-{% highlight html %}
-<p>...</p>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;p&gt;...&lt;/p&gt;</code></pre>
+</div>
+
 
     <!-- Body copy .lead -->
     <h3>Lead body copy</h3>
@@ -348,9 +529,10 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
     <div class="bs-example">
       <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
     </div>
-{% highlight html %}
-<p class="lead">...</p>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;p class=&quot;lead&quot;&gt;...&lt;/p&gt;</code></pre>
+</div>
+
 
     <!-- Using LESS -->
     <h3>Built with Less</h3>
@@ -366,9 +548,10 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
     <div class="bs-example">
       <p><small>This line of text is meant to be treated as fine print.</small></p>
     </div>
-{% highlight html %}
-<small>This line of text is meant to be treated as fine print.</small>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;small&gt;This line of text is meant to be treated as fine print.&lt;/small&gt;</code></pre>
+</div>
+
 
 
     <h3>Bold</h3>
@@ -376,18 +559,20 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
     <div class="bs-example">
       <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
     </div>
-{% highlight html %}
-<strong>rendered as bold text</strong>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;strong&gt;rendered as bold text&lt;/strong&gt;</code></pre>
+</div>
+
 
     <h3>Italics</h3>
     <p>For emphasizing a snippet of text with italics.</p>
     <div class="bs-example">
       <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
     </div>
-{% highlight html %}
-<em>rendered as italicized text</em>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;em&gt;rendered as italicized text&lt;/em&gt;</code></pre>
+</div>
+
 
     <p>Feel free to use <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> in HTML5. <code>&lt;b&gt;</code> is meant to highlight words or phrases without conveying additional importance while <code>&lt;i&gt;</code> is mostly for voice, technical terms, etc.</p>
 
@@ -398,11 +583,12 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
       <p class="text-center">Center aligned text.</p>
       <p class="text-right">Right aligned text.</p>
     </div>
-{% highlight html %}
-<p class="text-left">Left aligned text.</p>
-<p class="text-center">Center aligned text.</p>
-<p class="text-right">Right aligned text.</p>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;p class=&quot;text-left&quot;&gt;Left aligned text.&lt;/p&gt;
+&lt;p class=&quot;text-center&quot;&gt;Center aligned text.&lt;/p&gt;
+&lt;p class=&quot;text-right&quot;&gt;Right aligned text.&lt;/p&gt;</code></pre>
+</div>
+
 
     <h3>Emphasis classes</h3>
     <p>Convey meaning through color with a handful of emphasis utility classes.</p>
@@ -412,12 +598,13 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
       <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
       <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
     </div>
-{% highlight html %}
-<p class="text-muted">...</p>
-<p class="text-warning">...</p>
-<p class="text-danger">...</p>
-<p class="text-success">...</p>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;p class=&quot;text-muted&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;text-warning&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;text-danger&quot;&gt;...&lt;/p&gt;
+&lt;p class=&quot;text-success&quot;&gt;...&lt;/p&gt;</code></pre>
+</div>
+
 
 
     <!-- Abbreviations -->
@@ -429,18 +616,20 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
     <div class="bs-example">
       <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
     </div>
-{% highlight html %}
-<abbr title="attribute">attr</abbr>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;abbr title=&quot;attribute&quot;&gt;attr&lt;/abbr&gt;</code></pre>
+</div>
+
 
     <h3>Initialism</h3>
     <p>Add <code>.initialism</code> to an abbreviation for a slightly smaller font-size.</p>
     <div class="bs-example">
       <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr> is the best thing since sliced bread.</p>
     </div>
-{% highlight html %}
-<abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;abbr title=&quot;HyperText Markup Language&quot; class=&quot;initialism&quot;&gt;HTML&lt;/abbr&gt;</code></pre>
+</div>
+
 
 
     <!-- Addresses -->
@@ -458,19 +647,20 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <a href="mailto:#">first.last@example.com</a>
       </address>
     </div>
-{% highlight html %}
-<address>
-  <strong>Twitter, Inc.</strong><br>
-  795 Folsom Ave, Suite 600<br>
-  San Francisco, CA 94107<br>
-  <abbr title="Phone">P:</abbr> (123) 456-7890
-</address>
+<div>
+  <pre><code class='html'>&lt;address&gt;
+  &lt;strong&gt;Twitter, Inc.&lt;/strong&gt;&lt;br&gt;
+  795 Folsom Ave, Suite 600&lt;br&gt;
+  San Francisco, CA 94107&lt;br&gt;
+  &lt;abbr title=&quot;Phone&quot;&gt;P:&lt;/abbr&gt; (123) 456-7890
+&lt;/address&gt;
 
-<address>
-  <strong>Full Name</strong><br>
-  <a href="mailto:#">first.last@example.com</a>
-</address>
-{% endhighlight %}
+&lt;address&gt;
+  &lt;strong&gt;Full Name&lt;/strong&gt;&lt;br&gt;
+  &lt;a href=&quot;mailto:#&quot;&gt;first.last@example.com&lt;/a&gt;
+&lt;/address&gt;</code></pre>
+</div>
+
 
 
     <!-- Blockquotes -->
@@ -484,11 +674,12 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
       </blockquote>
     </div>
-{% highlight html %}
-<blockquote>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-</blockquote>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;blockquote&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+</div>
+
 
     <h3>Blockquote options</h3>
     <p>Style and content changes for simple variations on a standard blockquote.</p>
@@ -501,12 +692,13 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
       </blockquote>
     </div>
-{% highlight html %}
-<blockquote>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-  <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-</blockquote>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;blockquote&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
+  &lt;small&gt;Someone famous &lt;cite title=&quot;Source Title&quot;&gt;Source Title&lt;/cite&gt;&lt;/small&gt;
+&lt;/blockquote&gt;</code></pre>
+</div>
+
 
     <h4>Alternate displays</h4>
     <p>Use <code>.pull-right</code> for a floated, right-aligned blockquote.</p>
@@ -516,11 +708,12 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
       </blockquote>
     </div>
-{% highlight html %}
-<blockquote class="pull-right">
+<div>
+  <pre><code class='html'>&lt;blockquote class=&quot;pull-right&quot;&gt;
   ...
-</blockquote>
-{% endhighlight %}
+&lt;/blockquote&gt;</code></pre>
+</div>
+
 
 
     <!-- Lists -->
@@ -547,11 +740,12 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <li>Eget porttitor lorem</li>
       </ul>
     </div>
-{% highlight html %}
-<ul>
-  <li>...</li>
-</ul>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;ul&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+
 
     <h3>Ordered</h3>
     <p>A list of items in which the order <em>does</em> explicitly matter.</p>
@@ -567,11 +761,12 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <li>Eget porttitor lorem</li>
       </ol>
     </div>
-{% highlight html %}
-<ol>
-  <li>...</li>
-</ol>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;ol&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+
 
     <h3>Unstyled</h3>
     <p>Remove the default <code>list-style</code> and left margin on list items (immediate children only). <strong>This only applies to immediate children list items</strong>, meaning you will need to add the class for any nested lists as well.</p>
@@ -594,11 +789,12 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <li>Eget porttitor lorem</li>
       </ul>
     </div>
-{% highlight html %}
-<ul class="list-unstyled">
-  <li>...</li>
-</ul>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;ul class=&quot;list-unstyled&quot;&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+
 
     <h3>Inline</h3>
     <p>Place all list items on a single line with <code>inline-block</code> and some light padding.</p>
@@ -609,11 +805,12 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <li>Nulla volutpat</li>
       </ul>
     </div>
-{% highlight html %}
-<ul class="list-inline">
-  <li>...</li>
-</ul>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+
 
     <h3>Description</h3>
     <p>A list of terms with their associated descriptions.</p>
@@ -628,12 +825,13 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
       </dl>
     </div>
-{% highlight html %}
-<dl>
-  <dt>...</dt>
-  <dd>...</dd>
-</dl>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;dl&gt;
+  &lt;dt&gt;...&lt;/dt&gt;
+  &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+</div>
+
 
     <h4>Horizontal description</h4>
     <p>Make terms and descriptions in <code>&lt;dl&gt;</code> line up side-by-side.</p>
@@ -650,12 +848,13 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
         <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
       </dl>
     </div>
-{% highlight html %}
-<dl class="dl-horizontal">
-  <dt>...</dt>
-  <dd>...</dd>
-</dl>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;dl class=&quot;dl-horizontal&quot;&gt;
+  &lt;dt&gt;...&lt;/dt&gt;
+  &lt;dd&gt;...&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+</div>
+
 
     <h5>Auto-truncating</h5>
     <p>
@@ -676,18 +875,20 @@ lead: "Fundamental HTML elements styled and enhanced with extensible classes."
 <div class="bs-example">
   For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 </div>
-{% highlight html %}
-For example, <code>&lt;section&gt;</code> should be wrapped as inline.
-{% endhighlight %}
+<div>
+  <pre><code class='html'>For example, &lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt; should be wrapped as inline.</code></pre>
+</div>
+
 
     <h2>Basic block</h2>
     <p>Use <code>&lt;pre&gt;</code> for multiple lines of code. Be sure to escape any angle brackets in the code for proper rendering.</p>
 <div class="bs-example">
   <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
 </div>
-{% highlight html %}
-<pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;pre&gt;&amp;lt;p&amp;gt;Sample text here...&amp;lt;/p&amp;gt;&lt;/pre&gt;</code></pre>
+</div>
+
 
     <p>You may optionally add the <code>.pre-scrollable</code> class which will set a max-height of 350px and provide a y-axis scrollbar.</p>
   </div>
@@ -735,11 +936,12 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </tbody>
       </table>
     </div><!-- /example -->
-{% highlight html %}
-<table class="table">
+<div>
+  <pre><code class='html'>&lt;table class=&quot;table&quot;&gt;
   ...
-</table>
-{% endhighlight %}
+&lt;/table&gt;</code></pre>
+</div>
+
 
 
     <h2>Optional classes</h2>
@@ -783,11 +985,12 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </tbody>
       </table>
     </div><!-- /example -->
-{% highlight html %}
-<table class="table table-striped">
+<div>
+  <pre><code class='html'>&lt;table class=&quot;table table-striped&quot;&gt;
   ...
-</table>
-{% endhighlight %}
+&lt;/table&gt;</code></pre>
+</div>
+
 
     <h3 id="tables-bordered">Bordered</h3>
     <p>Add <code>.table-bordered</code> for borders and rounded corners.</p>
@@ -827,11 +1030,12 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </tbody>
       </table>
     </div><!-- /example -->
-{% highlight html %}
-<table class="table table-bordered">
+<div>
+  <pre><code class='html'>&lt;table class=&quot;table table-bordered&quot;&gt;
   ...
-</table>
-{% endhighlight %}
+&lt;/table&gt;</code></pre>
+</div>
+
 
     <h3 id="tables-hover-rows">Hover rows</h3>
     <p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
@@ -866,11 +1070,12 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </tbody>
       </table>
     </div><!-- /example -->
-{% highlight html %}
-<table class="table table-hover">
+<div>
+  <pre><code class='html'>&lt;table class=&quot;table table-hover&quot;&gt;
   ...
-</table>
-{% endhighlight %}
+&lt;/table&gt;</code></pre>
+</div>
+
 
 
     <h3 id="tables-condensed">Condensed</h3>
@@ -906,11 +1111,12 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </tbody>
       </table>
     </div><!-- /example -->
-{% highlight html %}
-<table class="table table-condensed">
+<div>
+  <pre><code class='html'>&lt;table class=&quot;table table-condensed&quot;&gt;
   ...
-</table>
-{% endhighlight %}
+&lt;/table&gt;</code></pre>
+</div>
+
 
 
 
@@ -986,16 +1192,17 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </tbody>
       </table>
     </div><!-- /example -->
-{% highlight html %}
-...
-<tr class="success">
-  <td>1</td>
-  <td>TB - Monthly</td>
-  <td>01/04/2012</td>
-  <td>Approved</td>
-</tr>
-...
-{% endhighlight %}
+<div>
+  <pre><code class='html'>...
+&lt;tr class=&quot;success&quot;&gt;
+  &lt;td&gt;1&lt;/td&gt;
+  &lt;td&gt;TB - Monthly&lt;/td&gt;
+  &lt;td&gt;01/04/2012&lt;/td&gt;
+  &lt;td&gt;Approved&lt;/td&gt;
+&lt;/tr&gt;
+...</code></pre>
+</div>
+
 
   </div>
 
@@ -1024,22 +1231,23 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <button type="submit" class="btn btn-default">Submit</button>
       </fieldset>
     </form><!-- /example -->
-{% highlight html %}
-<form>
-  <fieldset>
-    <legend>Legend</legend>
-    <label>Label name</label>
-    <input type="text" placeholder="Type something…">
-    <p class="help-block">Example block-level help text here.</p>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox"> Check me out
-      </label>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </fieldset>
-</form>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;form&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Legend&lt;/legend&gt;
+    &lt;label&gt;Label name&lt;/label&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Type something…&quot;&gt;
+    &lt;p class=&quot;help-block&quot;&gt;Example block-level help text here.&lt;/p&gt;
+    &lt;div class=&quot;checkbox&quot;&gt;
+      &lt;label&gt;
+        &lt;input type=&quot;checkbox&quot;&gt; Check me out
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Submit&lt;/button&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
 
 
     <h2>Optional layouts</h2>
@@ -1061,18 +1269,19 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       </div>
       <button type="submit" class="btn btn-default">Sign in</button>
     </form><!-- /example -->
-{% highlight html %}
-<form class="form-inline">
-  <input type="text" placeholder="Email">
-  <input type="password" placeholder="Password">
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Remember me
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Sign in</button>
-</form>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;form class=&quot;form-inline&quot;&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;Email&quot;&gt;
+  &lt;input type=&quot;password&quot; placeholder=&quot;Password&quot;&gt;
+  &lt;div class=&quot;checkbox&quot;&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;checkbox&quot;&gt; Remember me
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
 
     <h3 id="forms-horizontal">Horizontal form</h3>
     <p>Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout.</p>
@@ -1098,30 +1307,31 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </div>
       </div>
     </form>
-{% highlight html %}
-<form class="form-horizontal">
-  <div class="row">
-    <label for="inputEmail" class="col col-lg-2 control-label">Email</label>
-    <div class="col col-lg-10">
-      <input type="text" id="inputEmail" placeholder="Email">
-    </div>
-  </div>
-  <div class="row">
-    <label for="" class="col col-lg-2 control-label">Password</label>
-    <div class="col col-lg-10">
-      <input type="password" id="inputPassword" placeholder="Password">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Remember me
-        </label>
-      </div>
-    </div>
-    <div class="col col-lg-10 col-offset-2">
-      <button type="submit" class="btn btn-default">Sign in</button>
-    </div>
-  </div>
-</form>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;form class=&quot;form-horizontal&quot;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;label for=&quot;inputEmail&quot; class=&quot;col col-lg-2 control-label&quot;&gt;Email&lt;/label&gt;
+    &lt;div class=&quot;col col-lg-10&quot;&gt;
+      &lt;input type=&quot;text&quot; id=&quot;inputEmail&quot; placeholder=&quot;Email&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;label for=&quot;&quot; class=&quot;col col-lg-2 control-label&quot;&gt;Password&lt;/label&gt;
+    &lt;div class=&quot;col col-lg-10&quot;&gt;
+      &lt;input type=&quot;password&quot; id=&quot;inputPassword&quot; placeholder=&quot;Password&quot;&gt;
+      &lt;div class=&quot;checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot;&gt; Remember me
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col col-lg-10 col-offset-2&quot;&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Sign in&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
 
 
     <h2 id="forms-controls">Supported form controls</h2>
@@ -1136,18 +1346,20 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     <form class="bs-example">
       <input type="text" placeholder="Text input">
     </form>
-{% highlight html %}
-<input type="text" placeholder="Text input">
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;input type=&quot;text&quot; placeholder=&quot;Text input&quot;&gt;</code></pre>
+</div>
+
 
     <h3>Textarea</h3>
     <p>Form control which supports multiple lines of text. Change <code>rows</code> attribute as necessary.</p>
     <form class="bs-example">
       <textarea rows="3"></textarea>
     </form>
-{% highlight html %}
-<textarea rows="3"></textarea>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;textarea rows=&quot;3&quot;&gt;&lt;/textarea&gt;</code></pre>
+</div>
+
 
     <h3>Checkboxes and radios</h3>
     <p>Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
@@ -1173,21 +1385,22 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </label>
       </div>
     </form>
-{% highlight html %}
-<div class="checkbox">
-  <label>
-    <input type="checkbox" value="">
-    Option one is this and that&mdash;be sure to include why it's great
-  </label>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;checkbox&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;checkbox&quot; value=&quot;&quot;&gt;
+    Option one is this and that&amp;mdash;be sure to include why it's great
+  &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;radio&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios1&quot; value=&quot;option1&quot; checked&gt;
+    Option one is this and that&amp;mdash;be sure to include why it's great
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
-<div class="radio">
-  <label>
-    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-    Option one is this and that&mdash;be sure to include why it's great
-  </label>
-</div>
-{% endhighlight %}
 
     <h4>Inline checkboxes</h4>
     <p>Use <code>.checkbox-inline</code> or <code>.radio-inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p>
@@ -1202,17 +1415,18 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
       </label>
     </form>
-{% highlight html %}
-<label class="checkbox-inline">
-  <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
-</label>
-<label class="checkbox-inline">
-  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
-</label>
-<label class="checkbox-inline">
-  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-</label>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;label class=&quot;checkbox-inline&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;inlineCheckbox1&quot; value=&quot;option1&quot;&gt; 1
+&lt;/label&gt;
+&lt;label class=&quot;checkbox-inline&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;inlineCheckbox2&quot; value=&quot;option2&quot;&gt; 2
+&lt;/label&gt;
+&lt;label class=&quot;checkbox-inline&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;inlineCheckbox3&quot; value=&quot;option3&quot;&gt; 3
+&lt;/label&gt;</code></pre>
+</div>
+
 
     <h3>Selects</h3>
     <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
@@ -1233,23 +1447,24 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <option>5</option>
       </select>
     </form>
-{% highlight html %}
-<select>
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
+<div>
+  <pre><code class='html'>&lt;select&gt;
+  &lt;option&gt;1&lt;/option&gt;
+  &lt;option&gt;2&lt;/option&gt;
+  &lt;option&gt;3&lt;/option&gt;
+  &lt;option&gt;4&lt;/option&gt;
+  &lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;
 
-<select multiple="multiple">
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
-{% endhighlight %}
+&lt;select multiple=&quot;multiple&quot;&gt;
+  &lt;option&gt;1&lt;/option&gt;
+  &lt;option&gt;2&lt;/option&gt;
+  &lt;option&gt;3&lt;/option&gt;
+  &lt;option&gt;4&lt;/option&gt;
+  &lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+</div>
+
 
 
 
@@ -1261,9 +1476,10 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     <form class="bs-example">
       <input class="focused" id="focusedInput" type="text" value="This is focused...">
     </form>
-{% highlight html %}
-<input id="focusedInput" type="text" value="This is focused...">
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;input id=&quot;focusedInput&quot; type=&quot;text&quot; value=&quot;This is focused...&quot;&gt;</code></pre>
+</div>
+
 
     <h3 id="forms-invalid-inputs">Invalid inputs</h3>
     <p>Style inputs via default browser functionality. Specify a <code>type</code>, add the <code>required</code> attribute if the field is not optional, and (if applicable) specify a <code>pattern</code>.</p>
@@ -1276,18 +1492,20 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     <form class="bs-example">
       <input type="email" placeholder="test@example.com" required>
     </form>
-{% highlight html %}
-<input type="email" placeholder="test@example.com" required>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;input type=&quot;email&quot; placeholder=&quot;test@example.com&quot; required&gt;</code></pre>
+</div>
+
 
     <h3 id="forms-disabled-inputs">Disabled inputs</h3>
     <p>Add the <code>disabled</code> attribute on an input to prevent user input and trigger a slightly different look.</p>
     <form class="bs-example">
       <input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
     </form>
-{% highlight html %}
-<input id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;input id=&quot;disabledInput&quot; type=&quot;text&quot; placeholder=&quot;Disabled input here...&quot; disabled&gt;</code></pre>
+</div>
+
 
     <h3 id="forms-disabled-fieldsets">Disabled fieldsets</h3>
     <p>Add the <code>disabled</code> attribute to a <code>&lt;fieldset&gt;</code> to disable all the controls within the <code>&lt;fieldset&gt;</code> at once.</p>
@@ -1316,26 +1534,27 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <button type="submit" class="btn btn-primary">Submit</button>
       </fieldset>
     </form>
-{% highlight html %}
-<form class="form-inline">
-  <fieldset disabled>
-    <div>
-      <input type="text" placeholder="Disabled input">
-    </div>
-    <div>
-      <select>
-        <option>Disabled select</option>
-      </select>
-    </div>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox"> Can't check this
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </fieldset>
-</form>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;form class=&quot;form-inline&quot;&gt;
+  &lt;fieldset disabled&gt;
+    &lt;div&gt;
+      &lt;input type=&quot;text&quot; placeholder=&quot;Disabled input&quot;&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;select&gt;
+        &lt;option&gt;Disabled select&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;checkbox&quot;&gt;
+      &lt;label&gt;
+        &lt;input type=&quot;checkbox&quot;&gt; Can't check this
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
 
     <h3 id="forms-validation">Validation states</h3>
     <p>Bootstrap includes validation styles for error, warning, info, and success messages. To use:</p>
@@ -1365,26 +1584,27 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </div>
       </div>
     </form>
-{% highlight html %}
-<div class="control-group has-warning">
-  <label class="control-label" for="inputWarning">Input with warning</label>
-  <div class="controls">
-    <input type="text" class="input-with-feedback" id="inputWarning">
-  </div>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;control-group has-warning&quot;&gt;
+  &lt;label class=&quot;control-label&quot; for=&quot;inputWarning&quot;&gt;Input with warning&lt;/label&gt;
+  &lt;div class=&quot;controls&quot;&gt;
+    &lt;input type=&quot;text&quot; class=&quot;input-with-feedback&quot; id=&quot;inputWarning&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;control-group has-error&quot;&gt;
+  &lt;label class=&quot;control-label&quot; for=&quot;inputError&quot;&gt;Input with error&lt;/label&gt;
+  &lt;div class=&quot;controls&quot;&gt;
+    &lt;input type=&quot;text&quot; class=&quot;input-with-feedback&quot; id=&quot;inputError&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;control-group has-success&quot;&gt;
+  &lt;label class=&quot;control-label&quot; for=&quot;inputSuccess&quot;&gt;Input with success&lt;/label&gt;
+  &lt;div class=&quot;controls&quot;&gt;
+    &lt;input type=&quot;text&quot; class=&quot;input-with-feedback&quot; id=&quot;inputSuccess&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-<div class="control-group has-error">
-  <label class="control-label" for="inputError">Input with error</label>
-  <div class="controls">
-    <input type="text" class="input-with-feedback" id="inputError">
-  </div>
-</div>
-<div class="control-group has-success">
-  <label class="control-label" for="inputSuccess">Input with success</label>
-  <div class="controls">
-    <input type="text" class="input-with-feedback" id="inputSuccess">
-  </div>
-</div>
-{% endhighlight %}
+
 
 
 
@@ -1416,23 +1636,24 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <span class="input-group-addon">.00</span>
       </div>
     </form>
-{% highlight html %}
-<div class="input-group col col-lg-9">
-  <span class="input-group-addon">@</span>
-  <input type="text" placeholder="Username">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;input-group col col-lg-9&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group col col-lg-6&quot;&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group col col-lg-3&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;$&lt;/span&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
-<div class="input-group col col-lg-6">
-  <input type="text">
-  <span class="input-group-addon">.00</span>
-</div>
-
-<div class="input-group col col-lg-3">
-  <span class="input-group-addon">$</span>
-  <input type="text">
-  <span class="input-group-addon">.00</span>
-</div>
-{% endhighlight %}
 
     <h4>Optional sizes</h4>
     <p>Add the relative form sizing classes to the `.input-group-addon`.</p>
@@ -1452,22 +1673,23 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <input type="text" class="input-small" placeholder="Username">
       </div>
     </form>
-{% highlight html %}
-<div class="input-group col col-lg-9">
-  <span class="input-group-addon input-large">@</span>
-  <input type="text" class="input-large" placeholder="Username">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;input-group col col-lg-9&quot;&gt;
+  &lt;span class=&quot;input-group-addon input-large&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;input-large&quot; placeholder=&quot;Username&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group col col-lg-9&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group col col-lg-9&quot;&gt;
+  &lt;span class=&quot;input-group-addon input-small&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;input-small&quot; placeholder=&quot;Username&quot;&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
-<div class="input-group col col-lg-9">
-  <span class="input-group-addon">@</span>
-  <input type="text" placeholder="Username">
-</div>
-
-<div class="input-group col col-lg-9">
-  <span class="input-group-addon input-small">@</span>
-  <input type="text" class="input-small" placeholder="Username">
-</div>
-{% endhighlight %}
 
     <h4>Buttons instead of text</h4>
     <p>Buttons in input groups are a bit different and require one extra level of nesting. Instead of <code>.input-group-addon</code>, you'll need to use <code>.input-group-btn</code> to wrap the buttons. This is required due to default browser styles that cannot be overridden.</p>
@@ -1486,21 +1708,22 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </span>
       </div>
     </form>
-{% highlight html %}
-<div class="input-group col col-lg-7">
-  <span class="input-group-btn">
-    <button class="btn btn-default" type="button">Go!</button>
-  </span>
-  <input type="text">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;input-group col col-lg-7&quot;&gt;
+  &lt;span class=&quot;input-group-btn&quot;&gt;
+    &lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot;&gt;Go!&lt;/button&gt;
+  &lt;/span&gt;
+  &lt;input type=&quot;text&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group col col-lg-7&quot;&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;span class=&quot;input-group-btn&quot;&gt;
+    &lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot;&gt;Go!&lt;/button&gt;
+  &lt;/span&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
-<div class="input-group col col-lg-7">
-  <input type="text">
-  <span class="input-group-btn">
-    <button class="btn btn-default" type="button">Go!</button>
-  </span>
-</div>
-{% endhighlight %}
 
     <h4>Button dropdowns</h4>
     <p></p>
@@ -1533,35 +1756,36 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </div><!-- /btn-group -->
       </div><!-- /input-group -->
     </form>
-{% highlight html %}
-<div class="input-group col col-lg-7">
-  <div class="input-group-btn">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-    </ul>
-  </div><!-- /btn-group -->
-  <input type="text">
-</div><!-- /input-group -->
+<div>
+  <pre><code class='html'>&lt;div class=&quot;input-group col col-lg-7&quot;&gt;
+  &lt;div class=&quot;input-group-btn&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Action &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;&lt;!-- /btn-group --&gt;
+  &lt;input type=&quot;text&quot;&gt;
+&lt;/div&gt;&lt;!-- /input-group --&gt;
 
-<div class="input-group col col-lg-7">
-  <input type="text">
-  <div class="input-group-btn">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-    </ul>
-  </div><!-- /btn-group -->
-</div><!-- /input-group -->
-{% endhighlight %}
+&lt;div class=&quot;input-group col col-lg-7&quot;&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;div class=&quot;input-group-btn&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Action &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;&lt;!-- /btn-group --&gt;
+&lt;/div&gt;&lt;!-- /input-group --&gt;</code></pre>
+</div>
+
 
     <h4>Segmented dropdown groups</h4>
     <form class="bs-example">
@@ -1601,21 +1825,22 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </div>
       </div>
     </form>
-{% highlight html %}
-<div class="input-group col col-lg-7">
-  <div class="input-group-btn">
-    <!-- Button and dropdown menu -->
-  </div>
-  <input type="text">
+<div>
+  <pre><code class='html'>&lt;div class=&quot;input-group col col-lg-7&quot;&gt;
+  &lt;div class=&quot;input-group-btn&quot;&gt;
+    &lt;!-- Button and dropdown menu --&gt;
+  &lt;/div&gt;
+  &lt;input type=&quot;text&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group col col-lg-7&quot;&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;div class=&quot;input-group-btn btn-group&quot;&gt;
+    &lt;!-- Button and dropdown menu --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
 
-<div class="input-group col col-lg-7">
-  <input type="text">
-  <div class="input-group-btn btn-group">
-    <!-- Button and dropdown menu -->
-  </div>
-</div>
-{% endhighlight %}
 
     <h3 id="forms-control-sizes">Control sizing</h3>
     <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.col-lg-*</code> classes.</p>
@@ -1629,11 +1854,12 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <input class="input-small" type="text" placeholder=".input-small">
       </div>
     </form>
-{% highlight html %}
-<input class="input-large" type="text" placeholder=".input-large">
-<input type="text" placeholder="Default input">
-<input class="input-small" type="text" placeholder=".input-small">
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;input class=&quot;input-large&quot; type=&quot;text&quot; placeholder=&quot;.input-large&quot;&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Default input&quot;&gt;
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; placeholder=&quot;.input-small&quot;&gt;</code></pre>
+</div>
+
 
     <h4>Column sizing</h4>
     <p>Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.</p>
@@ -1650,19 +1876,20 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         </div>
       </div>
     </form>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-2">
-    <input type="text" placeholder="col col-large-2">
-  </div>
-  <div class="col col-lg-3">
-    <input type="text" placeholder="col col-large-3">
-  </div>
-  <div class="col col-lg-4">
-    <input type="text" placeholder="col col-large-4">
-  </div>
+<div>
+  <pre><code class='html'>&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col col-lg-2&quot;&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;col col-large-2&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col col-lg-3&quot;&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;col col-large-3&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col col-lg-4&quot;&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;col col-large-4&quot;&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 </div>
-{% endhighlight %}
+
 
     <h3 id="forms-help-text">Help text</h3>
     <p>Block level help text for form controls.</p>
@@ -1670,9 +1897,10 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <input type="text">
       <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
     </form>
-{% highlight html %}
-<span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;span class=&quot;help-block&quot;&gt;A longer block of help text that breaks onto a new line and may extend beyond one line.&lt;/span&gt;</code></pre>
+</div>
+
 
   </div>
 
@@ -1696,28 +1924,29 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <button type="button" class="btn btn-danger">Danger</button>
       <button type="button" class="btn btn-link">Link</button>
     </div>
-{% highlight html %}
-<!-- Standard gray button with gradient -->
-<button type="button" class="btn btn-default">Default</button>
+<div>
+  <pre><code class='html'>&lt;!-- Standard gray button with gradient --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Default&lt;/button&gt;
 
-<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-<button type="button" class="btn btn-primary">Primary</button>
+&lt;!-- Provides extra visual weight and identifies the primary action in a set of buttons --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
 
-<!-- Indicates a successful or positive action -->
-<button type="button" class="btn btn-success">Success</button>
+&lt;!-- Indicates a successful or positive action --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
 
-<!-- Contextual button for informational alert messages -->
-<button type="button" class="btn btn-info">Info</button>
+&lt;!-- Contextual button for informational alert messages --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
 
-<!-- Indicates caution should be taken with this action -->
-<button type="button" class="btn btn-warning">Warning</button>
+&lt;!-- Indicates caution should be taken with this action --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
 
-<!-- Indicates a dangerous or potentially negative action -->
-<button type="button" class="btn btn-danger">Danger</button>
+&lt;!-- Indicates a dangerous or potentially negative action --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;
 
-<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
-<button type="button" class="btn btn-link">Link</button>
-{% endhighlight %}
+&lt;!-- Deemphasize a button by making it look like a link while maintaining button behavior --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;Link&lt;/button&gt;</code></pre>
+</div>
+
 
     <h2 id="buttons-sizes">Button sizes</h2>
     <p>Fancy larger or smaller buttons? Add <code>.btn-large</code> or <code>.btn-small</code> for additional sizes.</p>
@@ -1735,20 +1964,21 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <button type="button" class="btn btn-default btn-small">Small button</button>
       </p>
     </div>
-{% highlight html %}
-<p>
-  <button type="button" class="btn btn-primary btn-large">Large button</button>
-  <button type="button" class="btn btn-default btn-large">Large button</button>
-</p>
-<p>
-  <button type="button" class="btn btn-primary">Default button</button>
-  <button type="button" class="btn btn-default">Default button</button>
-</p>
-<p>
-  <button type="button" class="btn btn-primary btn-small">Small button</button>
-  <button type="button" class="btn btn-default btn-small">Small button</button>
-</p>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;p&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-large&quot;&gt;Large button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-large&quot;&gt;Large button&lt;/button&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Default button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Default button&lt;/button&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-small&quot;&gt;Small button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-small&quot;&gt;Small button&lt;/button&gt;
+&lt;/p&gt;</code></pre>
+</div>
+
 
     <p>Create block level buttons&mdash;those that span the full width of a parent&mdash; by adding <code>.btn-block</code>.</p>
     <div class="bs-example">
@@ -1757,10 +1987,11 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
         <button type="button" class="btn btn-default btn-large btn-block">Block level button</button>
       </div>
     </div>
-{% highlight html %}
-<button type="button" class="btn btn-primary btn-large btn-block">Block level button</button>
-<button type="button" class="btn btn-default btn-large btn-block">Block level button</button>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-large btn-block&quot;&gt;Block level button&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-large btn-block&quot;&gt;Block level button&lt;/button&gt;</code></pre>
+</div>
+
 
 
     <h2 id="buttons-disabled">Disabled state</h2>
@@ -1772,10 +2003,11 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <button type="button" class="btn btn-primary btn-large" disabled="disabled">Primary button</button>
       <button type="button" class="btn btn-default btn-large" disabled="disabled">Button</button>
     </p>
-{% highlight html %}
-<button type="button" class="btn btn-large btn-primary" disabled="disabled">Primary button</button>
-<button type="button" class="btn btn-default btn-large" disabled="disabled">Button</button>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; class=&quot;btn btn-large btn-primary&quot; disabled=&quot;disabled&quot;&gt;Primary button&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-large&quot; disabled=&quot;disabled&quot;&gt;Button&lt;/button&gt;</code></pre>
+</div>
+
 
     <div class="bs-callout">
       <h4>Cross-browser compatibility</h4>
@@ -1788,10 +2020,11 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <a href="#" class="btn btn-primary btn-large disabled">Primary link</a>
       <a href="#" class="btn btn-default btn-large disabled">Link</a>
     </p>
-{% highlight html %}
-<a href="#" class="btn btn-primary btn-large disabled">Primary link</a>
-<a href="#" class="btn btn-default btn-large disabled">Link</a>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-large disabled&quot;&gt;Primary link&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-default btn-large disabled&quot;&gt;Link&lt;/a&gt;</code></pre>
+</div>
+
     <p>
       We use <code>.disabled</code> as a utility class here, similar to the common <code>.active</code> class, so no prefix is required.
     </p>
@@ -1809,12 +2042,13 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <input class="btn btn-default" type="button" value="Input">
       <input class="btn btn-default" type="submit" value="Submit">
     </form>
-{% highlight html %}
-<a class="btn btn-default" href="#">Link</a>
-<button class="btn btn-default" type="submit">Button</button>
-<input class="btn btn-default" type="button" value="Input">
-<input class="btn btn-default" type="submit" value="Submit">
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;a class=&quot;btn btn-default&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;
+&lt;button class=&quot;btn btn-default&quot; type=&quot;submit&quot;&gt;Button&lt;/button&gt;
+&lt;input class=&quot;btn btn-default&quot; type=&quot;button&quot; value=&quot;Input&quot;&gt;
+&lt;input class=&quot;btn btn-default&quot; type=&quot;submit&quot; value=&quot;Submit&quot;&gt;</code></pre>
+</div>
+
 
     <div class="bs-callout">
       <h4>Cross-browser rendering</h4>
@@ -1842,11 +2076,12 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
       <img data-src="holder.js/140x140" class="img-circle">
       <img data-src="holder.js/140x140" class="img-thumbnail">
     </div>
-{% highlight html %}
-<img src="..." class="img-rounded">
-<img src="..." class="img-circle">
-<img src="..." class="img-thumbnail">
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;img src=&quot;...&quot; class=&quot;img-rounded&quot;&gt;
+&lt;img src=&quot;...&quot; class=&quot;img-circle&quot;&gt;
+&lt;img src=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt;</code></pre>
+</div>
+
 
   </div>
 
@@ -1863,46 +2098,52 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     <div class="bs-example">
       <p><button type="button" class="close">&times;</button></p>
     </div>
-{% highlight html %}
-<button type="button" class="close">&times;</button>
-{% endhighlight %}
+<div>
+  <pre><code class='html'>&lt;button type=&quot;button&quot; class=&quot;close&quot;&gt;&amp;times;&lt;/button&gt;</code></pre>
+</div>
+
 
     <h3>.pull-left</h3>
     <p>Float an element left</p>
-{% highlight html %}
-<div class="pull-left">...</div>
-{% endhighlight %}
-{% highlight css %}
-.pull-left {
+<div>
+  <pre><code class='html'>&lt;div class=&quot;pull-left&quot;&gt;...&lt;/div&gt;</code></pre>
+</div>
+
+<div>
+  <pre><code class='css'>.pull-left {
   float: left;
-}
-{% endhighlight %}
+}</code></pre>
+</div>
+
 
     <h3>.pull-right</h3>
     <p>Float an element right</p>
-{% highlight html %}
-<div class="pull-right">...</div>
-{% endhighlight %}
-{% highlight css %}
-.pull-right {
+<div>
+  <pre><code class='html'>&lt;div class=&quot;pull-right&quot;&gt;...&lt;/div&gt;</code></pre>
+</div>
+
+<div>
+  <pre><code class='css'>.pull-right {
   float: right;
-}
-{% endhighlight %}
+}</code></pre>
+</div>
+
 
     <h3>.clearfix</h3>
     <p>Clear the <code>float</code> on any element. Utilizes <a href="http://nicolasgallagher.com/micro-clearfix-hack/">the micro clearfix</a> as popularized by Nicolas Gallagher.</p>
-{% highlight html %}
-<div class="clearfix">...</div>
-{% endhighlight %}
-{% highlight css %}
-// Mixin
+<div>
+  <pre><code class='html'>&lt;div class=&quot;clearfix&quot;&gt;...&lt;/div&gt;</code></pre>
+</div>
+
+<div>
+  <pre><code class='css'>// Mixin
 .clearfix {
-  &:before,
-  &:after {
-    content: " ";
+  &amp;:before,
+  &amp;:after {
+    content: &quot; &quot;;
     display: table;
   }
-  &:after {
+  &amp;:after {
     clear: both;
   }
 }
@@ -1910,8 +2151,9 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 // Usage
 .element {
   .clearfix();
-}
-{% endhighlight %}
+}</code></pre>
+</div>
+
   </div>
 
   <!-- Responsive utilities
@@ -2036,3 +2278,80 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     </ul>
 
   </div>
+
+        </div>
+      </div>
+
+      <!-- Quick back to top -->
+      <a href="#" class="bs-top">
+        Back to top
+      </a>
+
+    </div>
+
+    <!-- Main docs footer (social buttons, copyright, etc). -->
+    <!-- Footer
+================================================== -->
+<footer class="bs-footer">
+  <div class="bs-social">
+  <ul class="bs-social-buttons">
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twitter&repo=bootstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twitter&repo=bootstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+    </li>
+    <li class="follow-btn">
+      <a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @twbootstrap</a>
+    </li>
+    <li class="tweet-btn">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.github.com/bootstrap/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
+    </li>
+  </ul>
+</div>
+
+
+  <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+  <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+  <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+  <ul class="footer-links">
+    <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+    <li class="muted">&middot;</li>
+    <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+    <li class="muted">&middot;</li>
+    <li><a href="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">Changelog</a></li>
+  </ul>
+</footer>
+
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script src="/assets/js/holder/holder.js"></script>
+
+<script src="/assets/js/application.js"></script>
+
+<!-- Analytics
+================================================== -->
+<script>
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  </body>
+</html>
